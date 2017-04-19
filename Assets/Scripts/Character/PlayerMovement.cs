@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour {
 
         rb.MovePosition(rb.position + movVec * moveSpeed * Time.deltaTime);
         rb.MoveRotation(Mathf.Rad2Deg * Mathf.Atan2(((Input.mousePosition.y/Screen.height) - 0.5f) * 2, ((Input.mousePosition.x/Screen.width) - 0.5f) * 2) - 90);
-
         if(!cutScene && cam != null)
         {
             cam.position = new Vector3(transform.position.x, transform.position.y, cam.position.z);
