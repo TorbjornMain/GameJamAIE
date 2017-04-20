@@ -122,6 +122,9 @@ public class StartOptions : MonoBehaviour
 		Invoke("HideDelayed", fadeAlphaAnimationClip.length);
         SceneManager.LoadScene("NicSceneTransition", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("NickTest");
+
+
+
         Debug.Log ("Game started in same scene! Put your game starting stuff here.");
 	}
 
