@@ -123,8 +123,9 @@ public class StartOptions : MonoBehaviour
         SceneManager.LoadScene("NicSceneTransition", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("NickTest");
 
-
-
+        //GameObject HUDCanvas = GameObject.Find("HUDCanvas");
+        //TutorialTest tutTest = HUDCanvas.GetComponent<TutorialTest>();
+        //PopUp();
         Debug.Log ("Game started in same scene! Put your game starting stuff here.");
 	}
 
