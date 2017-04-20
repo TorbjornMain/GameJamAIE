@@ -29,7 +29,6 @@ public class CameraDetection : MonoBehaviour {
         {
 
             float ang = Vector2.Angle(transform.right, (target.transform.position - transform.position).normalized);
-            print(ang);
             if (ang < FOV / 2)
             {
                 
