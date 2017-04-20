@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class CameraDetection : MonoBehaviour {
     public bool detected;
-    bool prevDetected = false;
+    bool delayedDetectSent = false;
+
 
 
     [SerializeField()]
@@ -16,6 +17,10 @@ public class CameraDetection : MonoBehaviour {
     float radius;
     [SerializeField()]
     List<GameObject> linkedObjects;
+    [SerializeField()]
+    float detectDelay;
+
+    float timeDetected = 0;
 
     [SerializeField()]
     Color clearColor;
@@ -76,21 +81,29 @@ public class CameraDetection : MonoBehaviour {
             detected = false;
         }
 
-        if((detected != prevDetected) && detected)
+        if(!delayedDetectSent && detected)
         {
-            foreach (GameObject g in linkedObjects)
+            timeDetected += Time.deltaTime;
+            if (timeDetected > detectDelay)
             {
-                g.SendMessage("Activate");
+                delayedDetectSent = true;
+                foreach (GameObject g in linkedObjects)
+                {
+                    g.SendMessage("Activate");
+                }
+
             }
         }
 
         if(detected)
         {
-            lines[0].startColor = lines[1].startColor = detectedColor;
+            lines[0].startColor = lines[1].startColor = Color.Lerp(clearColor, detectedColor, timeDetected / detectDelay);
         }
         else
         {
             lines[0].startColor = lines[1].startColor = clearColor;
+            timeDetected = 0;
+            delayedDetectSent = false;
         }
         int layerMask = LayerMask.GetMask("Player");
         layerMask = ~layerMask;
@@ -119,7 +132,6 @@ public class CameraDetection : MonoBehaviour {
             lines[1].endColor = new Color(0, 0, 0, 0);
         }
 
-        prevDetected = detected;
     }
 
     void OnDrawGizmos()
