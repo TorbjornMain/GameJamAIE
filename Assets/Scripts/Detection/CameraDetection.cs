@@ -111,24 +111,24 @@ public class CameraDetection : MonoBehaviour {
         RaycastHit2D rc = Physics2D.Raycast(transform.position, Quaternion.Euler(0, 0, FOV / 2) * transform.right, radius, layerMask);
         if (rc)
         {
-            lines[0].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, FOV / 2) * transform.right));
+            lines[0].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, FOV / 2) * new Vector3(1, 0, 0)));
             lines[0].endColor = Color.Lerp(lines[1].startColor, new Color(0, 0, 0, 0), rc.distance / radius);
         }
         else
         {
-            lines[0].SetPosition(1, radius * (Quaternion.Euler(0, 0, FOV / 2) * transform.right));
+            lines[0].SetPosition(1, radius * (Quaternion.Euler(0, 0, FOV / 2) * new Vector3(1,0,0)));
             lines[0].endColor = new Color(0, 0, 0, 0);
         }
 
         rc = Physics2D.Raycast(transform.position, Quaternion.Euler(0, 0, -FOV / 2) * transform.right, radius, layerMask);
         if (rc)
         {
-            lines[1].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, -FOV / 2) * transform.right));
+            lines[1].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(1, 0, 0)));
             lines[1].endColor = Color.Lerp(lines[1].startColor, new Color(0, 0, 0, 0), rc.distance / radius);
         }
         else
         {
-            lines[1].SetPosition(1, radius * (Quaternion.Euler(0, 0, -FOV / 2) * transform.right));
+            lines[1].SetPosition(1, radius * (Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(1, 0, 0)));
             lines[1].endColor = new Color(0, 0, 0, 0);
         }
 
@@ -145,10 +145,10 @@ public class CameraDetection : MonoBehaviour {
             Gizmos.color = Color.red;
         }
 
-        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(radius, 0, 0));
-        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 0, FOV / 2) * new Vector3(radius, 0, 0));
-        Gizmos.DrawLine(transform.position + Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(radius, 0, 0), transform.position + transform.rotation * new Vector3(radius, 0, 0));
-        Gizmos.DrawLine(transform.position + Quaternion.Euler(0, 0, FOV / 2) * new Vector3(radius, 0, 0), transform.position + transform.rotation * new Vector3(radius, 0, 0));
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 0, -FOV / 2) * transform.right * radius);
+        Gizmos.DrawLine(transform.position, transform.position + Quaternion.Euler(0, 0, FOV / 2) * transform.right * radius);
+        Gizmos.DrawLine(transform.position + Quaternion.Euler(0, 0, -FOV / 2) * transform.right * radius, transform.position + transform.right * radius);
+        Gizmos.DrawLine(transform.position + Quaternion.Euler(0, 0, FOV / 2) * transform.right * radius, transform.position + transform.right * radius);
     }
 
 }
