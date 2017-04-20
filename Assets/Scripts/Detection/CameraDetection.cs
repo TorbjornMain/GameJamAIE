@@ -12,7 +12,7 @@ public class CameraDetection : MonoBehaviour {
     [Range(0, 180)]
     float FOV;
     [SerializeField()]
-    [Range(0,10)]
+    [Range(0,20)]
     float radius;
     [SerializeField()]
     List<GameObject> linkedObjects;
