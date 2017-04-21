@@ -19,11 +19,18 @@ public class PlayerInventory : MonoBehaviour {
         }
     }
 
-    
+
+    [SerializeField()]
+    Animator anim;
+
     List<ItemInfo> items = new List<ItemInfo>();
 
     void PickUp(ItemPickup item)
     {
+        if(anim)
+        {
+            anim.SetTrigger("Stealing");
+        }
         if(item.itemInfo.weight + curWeight < maxWeight)
         {
             items.Add(item.itemInfo);

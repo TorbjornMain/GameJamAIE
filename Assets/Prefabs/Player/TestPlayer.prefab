@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  turnRate: 0
   weightSpeedFactor: 0.327
 --- !u!114 &114802326562452272
 MonoBehaviour:
