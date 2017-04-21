@@ -56,7 +56,7 @@ public class CameraDetection : MonoBehaviour {
         }
 
         spotlight = Instantiate<Light>(spotlightPrefab);
-        spotlight.transform.position = transform.position + lightOff;
+        spotlight.transform.position = transform.position + new Vector3(0, 0, 1.5f);
         spotlight.transform.parent = transform;
         spotlight.transform.localEulerAngles = new Vector3(0, 90, 0);
         spotlight.shadows = LightShadows.Hard;
@@ -126,27 +126,27 @@ public class CameraDetection : MonoBehaviour {
         int layerMask = LayerMask.GetMask("Player");
         layerMask = ~layerMask;
 
-        RaycastHit2D rc = Physics2D.Raycast(transform.position, Quaternion.Euler(0, 0, FOV / 2) * transform.right, radius, layerMask);
+        RaycastHit2D rc = Physics2D.Raycast(transform.position, Quaternion.Euler(0, 0, FOV / 2) * new Vector3(1,0,0), radius, layerMask);
         if (rc)
         {
-            lines[0].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, FOV / 2) * transform.right * radius));
+            lines[0].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, FOV / 2) * new Vector3(radius, 0, 0)));
             lines[0].endColor = Color.Lerp(lines[1].startColor, new Color(0, 0, 0, 0), rc.distance / radius);
         }
         else
         {
-            lines[0].SetPosition(1, radius * (Quaternion.Euler(0, 0, FOV / 2) * transform.right * radius));
+            lines[0].SetPosition(1, radius * (Quaternion.Euler(0, 0, FOV / 2) * new Vector3(radius, 0, 0)));
             lines[0].endColor = new Color(0, 0, 0, 0);
         }
 
-        rc = Physics2D.Raycast(transform.position, Quaternion.Euler(0, 0, -FOV / 2) * transform.right, radius, layerMask);
+        rc = Physics2D.Raycast(transform.position, Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(1, 0, 0), radius, layerMask);
         if (rc)
         {
-            lines[1].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, -FOV / 2) * transform.right * radius));
+            lines[1].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(radius, 0, 0)));
             lines[1].endColor = Color.Lerp(lines[1].startColor, new Color(0, 0, 0, 0), rc.distance / radius);
         }
         else
         {
-            lines[1].SetPosition(1, radius * (Quaternion.Euler(0, 0, -FOV / 2) * transform.right * radius));
+            lines[1].SetPosition(1, radius * (Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(radius, 0, 0)));
             lines[1].endColor = new Color(0, 0, 0, 0);
         }
 
