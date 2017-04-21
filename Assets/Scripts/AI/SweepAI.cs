@@ -22,6 +22,6 @@ public class SweepAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rb.MoveRotation(rotation.Evaluate(Time.timeSinceLevelLoad/sweepTime)*360);
+        rb.MoveRotation(rotation.Evaluate(Time.timeSinceLevelLoad/sweepTime)*360 - 180);
 	}
 }

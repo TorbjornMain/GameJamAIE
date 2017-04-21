@@ -1103,6 +1103,78 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: sweepTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[1].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[1].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114440800637252948, guid: b6301d17b083ec742823826b0929c236,
+        type: 2}
+      propertyPath: rotation.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596873193177976, guid: b6301d17b083ec742823826b0929c236, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596873193177976, guid: b6301d17b083ec742823826b0929c236, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596873193177976, guid: b6301d17b083ec742823826b0929c236, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6301d17b083ec742823826b0929c236, type: 2}
   m_IsPrefabParent: 0
