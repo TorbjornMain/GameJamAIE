@@ -1,0 +1,3 @@
+frame 30 to 63 Walk cycle
+frame 65 to 101 Idle anim
+frame 105 to 141 Thief animation

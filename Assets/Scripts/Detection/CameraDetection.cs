@@ -61,6 +61,9 @@ public class CameraDetection : MonoBehaviour {
         spotlight.color = clearColor;
         spotlight.range = radius - 1;
         spotlight.spotAngle = FOV;
+        Camera[] cam = { GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>() };
+        spotlight.GetComponent<LightShafts>().m_Cameras = cam;
+        
     }
 
     void Update()
@@ -97,7 +100,7 @@ public class CameraDetection : MonoBehaviour {
         if(!delayedDetectSent && detected)
         {
             timeDetected = Mathf.Min(Time.deltaTime + timeDetected, detectDelay);
-            if (timeDetected > detectDelay)
+            if (timeDetected == detectDelay)
             {
                 delayedDetectSent = true;
                 foreach (GameObject g in linkedObjects)

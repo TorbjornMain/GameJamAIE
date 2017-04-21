@@ -1,0 +1,11 @@
+diff a/Assets/Scripts/Detection/CameraDetection.cs b/Assets/Scripts/Detection/CameraDetection.cs	(rejected hunks)
+@@ -61,9 +61,6 @@
+         spotlight.color = clearColor;
+         spotlight.range = radius - 1;
+         spotlight.spotAngle = FOV;
+-        Camera[] cam = { GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>() };
+-        spotlight.GetComponent<LightShafts>().m_Cameras = cam;
+-        
+     }
+ 
+     void Update()
