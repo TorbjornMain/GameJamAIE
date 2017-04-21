@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/ZacTest.unity
   - enabled: 1
     path: Assets/Scenes/NicSceneTransition.unity
+  - enabled: 1
+    path: Assets/Scenes/AdamTest.unity
