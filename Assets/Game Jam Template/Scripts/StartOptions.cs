@@ -126,7 +126,7 @@ public class StartOptions : MonoBehaviour
         //Delete these lines out went you have the scene you want to load implemented below.
 
         StartCoroutine(LoadScene());
-        SceneManager.LoadScene("NicSceneTransition", LoadSceneMode.Additive);
+        SceneManager.LoadScene("AdamTest");
         SceneManager.UnloadSceneAsync("NickTest");
 
         //SceneManager.LoadScene("SCENE YOU WANT TO LOAD", LoadSceneMode.Additive);
