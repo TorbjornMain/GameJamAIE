@@ -10,6 +10,8 @@ public class StartOptions : MonoBehaviour
     private AssetBundle myAssestBundle;
     private string[] scenePaths;
 
+    public GameObject turnOnHUD;
+    public GameObject splashBackground;
 
     public int sceneToStart = 1;										//Index number in build settings of scene to load if changeScenes is true
 	public bool changeScenes;											//If true, load a new scene when Start is pressed, if false, fade out UI and continue in single scene
@@ -120,14 +122,28 @@ public class StartOptions : MonoBehaviour
 		//Set trigger for animator to start animation fading out Menu UI
 		animMenuAlpha.SetTrigger ("fade");
 		Invoke("HideDelayed", fadeAlphaAnimationClip.length);
+
+        //Delete these lines out went you have the scene you want to load implemented below.
+
+        StartCoroutine(LoadScene());
         SceneManager.LoadScene("NicSceneTransition", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("NickTest");
 
-        //GameObject HUDCanvas = GameObject.Find("HUDCanvas");
-        //TutorialTest tutTest = HUDCanvas.GetComponent<TutorialTest>();
-        //PopUp();
-        Debug.Log ("Game started in same scene! Put your game starting stuff here.");
+        //SceneManager.LoadScene("SCENE YOU WANT TO LOAD", LoadSceneMode.Additive);
+        //SceneManager.UnloadSceneAsync("UNLOAD PREVOUS SCENE");
+
+
+
+        Debug.Log ("Put the scene you want to load into the code above.");
 	}
+
+    IEnumerator LoadScene()
+    {
+         yield return new WaitForSeconds(1);
+         
+        turnOnHUD.SetActive(true);
+        splashBackground.SetActive(false);
+    }
 
 
 	public void PlayNewMusic()

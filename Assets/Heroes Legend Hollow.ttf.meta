@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e6460ef33bf11514fbff36cfdecd0964
+timeCreated: 1492747277
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Heroes Legend Hollow
+  fontNames:
+  - Heroes Legend Hollow
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

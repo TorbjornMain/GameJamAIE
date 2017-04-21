@@ -19,7 +19,7 @@ public class PlayMusic : MonoBehaviour {
 	void Awake () 
 	{
 		//Get a component reference to the AudioSource attached to the UI game object
-		musicSource = GetComponent<AudioSource> ();
+		musicSource = GetComponent<AudioSource>();
 		//Call the PlayLevelMusic function to start playing music
 	}
 
@@ -41,7 +41,7 @@ public class PlayMusic : MonoBehaviour {
 		//Fade up the volume very quickly, over resetTime seconds (.01 by default)
 		FadeUp (resetTime);
 		//Play the assigned music clip in musicSource
-		musicSource.Play ();
+		musicSource.Play();
 	}
 	
 	//Used if running the game in a single scene, takes an integer music source allowing you to choose a clip by number and play.
@@ -61,7 +61,7 @@ public class PlayMusic : MonoBehaviour {
 			break;
 		}
 		//Play the selected clip
-		musicSource.Play ();
+		musicSource.Play();
 	}
 
 	//Call this function to very quickly fade up the volume of master mixer
