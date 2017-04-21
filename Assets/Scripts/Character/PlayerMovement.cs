@@ -35,26 +35,27 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector2 movVec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        Vector2 vel = movVec * moveSpeed * Time.deltaTime;
-        if(vel.magnitude > 0)
+        if (!cutScene && cam != null)
         {
-            rb.MoveRotation(Mathf.Atan2(vel.y, vel.x) * Mathf.Rad2Deg);
-        }
-        vel = Vector2.Lerp(vel, vel * weightSpeedFactor, pi.curWeight / pi.maxWeight);
-        if (vel.magnitude > 0)
-        {
-            rb.MovePosition(rb.position + vel);
-        }
-        if(anim)
-        {
-            anim.SetFloat("Speed", vel.magnitude/Time.deltaTime);
+            Vector2 movVec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            Vector2 vel = movVec * moveSpeed * Time.deltaTime;
+            if(vel.magnitude > 0)
+            {
+                rb.MoveRotation(Mathf.Atan2(vel.y, vel.x) * Mathf.Rad2Deg);
+            }
+            vel = Vector2.Lerp(vel, vel * weightSpeedFactor, pi.curWeight / pi.maxWeight);
+            if (vel.magnitude > 0)
+            {
+                rb.MovePosition(rb.position + vel);
+            }
+            if(anim)
+            {
+                anim.SetFloat("Speed", vel.magnitude/Time.deltaTime);
             //anim.ResetTrigger("Stealing");
-        }
+            }
 
-        //rb.MoveRotation(Mathf.Rad2Deg * Mathf.Atan2(((Input.mousePosition.y/Screen.height) - 0.5f) * 2, ((Input.mousePosition.x/Screen.width) - 0.5f) * 2) - 90);
-        if(!cutScene && cam != null)
-        {
+            //rb.MoveRotation(Mathf.Rad2Deg * Mathf.Atan2(((Input.mousePosition.y/Screen.height) - 0.5f) * 2, ((Input.mousePosition.x/Screen.width) - 0.5f) * 2) - 90);
+        
             cam.position = new Vector3(transform.position.x, transform.position.y, cam.position.z);
         }
 	}
