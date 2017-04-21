@@ -25,7 +25,7 @@ public class WeightBar : MonoBehaviour
 
     private void CalcWeightBar()
     {
-        GameObject thePlayer = GameObject.Find("TestPlayer");
+        GameObject thePlayer = GameObject.FindWithTag("Player");
         PlayerInventory playerInventory = thePlayer.GetComponent<PlayerInventory>();
         weightBarFillAmount = playerInventory.curWeight /playerInventory.maxWeight;
     }

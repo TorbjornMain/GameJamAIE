@@ -28,6 +28,9 @@ public class CameraDetection : MonoBehaviour {
     Color detectedColor;
 
     List<LineRenderer> lines;
+    Light spotlight;
+    [SerializeField()]
+    Light spotlightPrefab;
 
     void Start()
     {
@@ -48,6 +51,16 @@ public class CameraDetection : MonoBehaviour {
             lr.SetPosition(1, radius * new Vector3(1, 0, 0));
             lines.Add(lr);
         }
+
+        spotlight = Instantiate<Light>(spotlightPrefab);
+        spotlight.transform.position = transform.position + new Vector3(0, 0, 0.9f);
+        spotlight.transform.parent = transform;
+        spotlight.shadows = LightShadows.Hard;
+        spotlight.shadowStrength = 1;
+        spotlight.intensity = 8;
+        spotlight.color = clearColor;
+        spotlight.range = radius - 1;
+        spotlight.spotAngle = FOV;
     }
 
     void Update()
@@ -83,7 +96,7 @@ public class CameraDetection : MonoBehaviour {
 
         if(!delayedDetectSent && detected)
         {
-            timeDetected += Time.deltaTime;
+            timeDetected = Mathf.Min(Time.deltaTime + timeDetected, detectDelay);
             if (timeDetected > detectDelay)
             {
                 delayedDetectSent = true;
@@ -95,16 +108,14 @@ public class CameraDetection : MonoBehaviour {
             }
         }
 
-        if(detected)
-        {
-            lines[0].startColor = lines[1].startColor = Color.Lerp(clearColor, detectedColor, timeDetected / detectDelay);
-        }
-        else
-        {
-            lines[0].startColor = lines[1].startColor = clearColor;
-            timeDetected = 0;
+
+        spotlight.color = lines[0].startColor = lines[1].startColor = Color.Lerp(clearColor, detectedColor, timeDetected / detectDelay);
+        if(!detected)
+        { 
+            timeDetected = Mathf.Max(0, timeDetected - Time.deltaTime);
             delayedDetectSent = false;
         }
+
         int layerMask = LayerMask.GetMask("Player");
         layerMask = ~layerMask;
 
