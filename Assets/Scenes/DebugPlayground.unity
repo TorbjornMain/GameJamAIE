@@ -1086,11 +1086,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detected: 0
   FOV: 24
-  radius: 16.3
+  radius: 10.4
   linkedObjects:
   - {fileID: 310062743}
   detectDelay: 0.5
-  clearColor: {r: 0, g: 1, b: 0.21379304, a: 1}
+  clearColor: {r: 0, g: 1, b: 0.21379304, a: 0}
   detectedColor: {r: 0.24137926, g: 0, b: 1, a: 0}
   spotlightPrefab: {fileID: 108333709967254818, guid: 2d110c2ebb8471c4db50fc36fea592c2,
     type: 2}
@@ -3182,11 +3182,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detected: 0
   FOV: 24
-  radius: 16.3
+  radius: 9.6
   linkedObjects:
   - {fileID: 310062743}
   detectDelay: 0.5
-  clearColor: {r: 0, g: 1, b: 0.21379304, a: 1}
+  clearColor: {r: 0, g: 1, b: 0.21379304, a: 0}
   detectedColor: {r: 0.24137926, g: 0, b: 1, a: 0}
   spotlightPrefab: {fileID: 108333709967254818, guid: 2d110c2ebb8471c4db50fc36fea592c2,
     type: 2}
