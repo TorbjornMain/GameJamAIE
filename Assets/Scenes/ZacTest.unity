@@ -895,15 +895,15 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
     - serializedVersion: 2
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      time: 1.0018518
+      value: 0.5
+      inSlope: -0.1157807
+      outSlope: -0.1157807
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 0
     m_RotationOrder: 0
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detected: 0
-  FOV: 22
+  FOV: 30
   radius: 10
   linkedObjects:
   - {fileID: 98772763}
