@@ -35,25 +35,8 @@ public class CameraDetection : MonoBehaviour {
     [SerializeField()]
     Vector3 lightOff;
 
-    void Start()
+    void Awake()
     {
-        lines = new List<LineRenderer>(2);
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject ln = new GameObject();
-            ln.transform.position = transform.position;
-            ln.AddComponent<LineRenderer>();
-            ln.transform.parent = transform;
-            LineRenderer lr = ln.GetComponent<LineRenderer>();
-            lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
-            lr.startColor = Color.green;
-            lr.endColor = new Color(0, 0, 0, 0);
-            lr.widthMultiplier = 0.2f;
-            lr.useWorldSpace = false;
-            lr.SetPosition(0, Vector3.zero);
-            lr.SetPosition(1, radius * new Vector3(1, 0, 0));
-            lines.Add(lr);
-        }
 
         spotlight = Instantiate<Light>(spotlightPrefab);
         spotlight.transform.position = transform.position + new Vector3(0, 0, 1.5f);
@@ -116,7 +99,7 @@ public class CameraDetection : MonoBehaviour {
         }
 
 
-        spotlight.color = lines[0].startColor = lines[1].startColor = Color.Lerp(clearColor, detectedColor, timeDetected / detectDelay);
+        spotlight.color = Color.Lerp(clearColor, detectedColor, timeDetected / detectDelay);
         if(!detected)
         { 
             timeDetected = Mathf.Max(0, timeDetected - Time.deltaTime);
@@ -125,31 +108,6 @@ public class CameraDetection : MonoBehaviour {
 
         int layerMask = LayerMask.GetMask("Player");
         layerMask = ~layerMask;
-
-        RaycastHit2D rc = Physics2D.Raycast(transform.position, Quaternion.Euler(0, 0, FOV / 2) * new Vector3(1,0,0), radius, layerMask);
-        if (rc)
-        {
-            lines[0].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, FOV / 2) * new Vector3(radius, 0, 0)));
-            lines[0].endColor = Color.Lerp(lines[1].startColor, new Color(0, 0, 0, 0), rc.distance / radius);
-        }
-        else
-        {
-            lines[0].SetPosition(1, radius * (Quaternion.Euler(0, 0, FOV / 2) * new Vector3(radius, 0, 0)));
-            lines[0].endColor = new Color(0, 0, 0, 0);
-        }
-
-        rc = Physics2D.Raycast(transform.position, Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(1, 0, 0), radius, layerMask);
-        if (rc)
-        {
-            lines[1].SetPosition(1, rc.distance * (Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(radius, 0, 0)));
-            lines[1].endColor = Color.Lerp(lines[1].startColor, new Color(0, 0, 0, 0), rc.distance / radius);
-        }
-        else
-        {
-            lines[1].SetPosition(1, radius * (Quaternion.Euler(0, 0, -FOV / 2) * new Vector3(radius, 0, 0)));
-            lines[1].endColor = new Color(0, 0, 0, 0);
-        }
-
     }
 
     void OnDrawGizmos()
